@@ -8,8 +8,6 @@ const types = React.PropTypes;
 const {useStore} = require('p-flux');
 const {useRouter} = require('./use_router');
 const Router = require('./router');
-const numeral = require('numeral');
-const classnames = require('classnames')
 
 require('pui-css-alignment');
 require('pui-css-ellipsis');

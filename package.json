@@ -14,6 +14,7 @@
     "pui-css-alignment": "^5.0.3",
     "pui-css-ellipsis": "^5.0.3",
     "pui-css-typography": "^5.0.3",
+    "pui-css-variables-and-mixins": "^5.0.3",
     "pui-css-whitespace": "^5.0.3",
     "pui-react-table": "^5.0.3",
     "recluster": "^0.4.5",

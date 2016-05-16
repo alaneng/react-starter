@@ -1,6 +1,8 @@
 const Pui = require('pui-react-table');
 const {TableCell, TableRow} = Pui;
 const React = require('react');
+const classnames = require('classnames')
+const numeral = require('numeral');
 
 const {mergeProps} = require('pui-react-helpers');
 
