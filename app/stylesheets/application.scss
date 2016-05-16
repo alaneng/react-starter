@@ -1,1 +1,19 @@
 @import '_layout';
+
+.datatable {
+  td, th {
+    width: 33%;
+    text-align: center;
+  }
+
+  tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .subrow, .expanded {
+    &, &:hover {
+      background: $neutral-11;
+    }
+  }
+}
+
