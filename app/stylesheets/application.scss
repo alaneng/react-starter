@@ -2,23 +2,40 @@
 @import '_layout';
 
 .datatable {
+  > tbody + tbody {
+    border-top: none;
+  }
+
+  tbody tr {
+    &, &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  tbody tr {
+    border-top: 1px solid $neutral-7;
+  }
+
   td, th {
     width: 33%;
     text-align: center;
   }
-
-  tbody tr:last-child {
-    border-bottom: none;
-  }
-
   .subrow, .expanded {
     &, &:hover {
       background: $neutral-11;
     }
   }
 
-  .subrow {
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+  .table-wrapper {
+    border-top: none;
+    > td {
+      padding: 0;
+      overflow: hidden;
+    }
+  }
+
+  .subtable {
+    width: 100%;
   }
 }
 

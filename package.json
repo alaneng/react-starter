@@ -16,6 +16,8 @@
     "pui-css-typography": "^5.0.3",
     "pui-css-variables-and-mixins": "^5.0.3",
     "pui-css-whitespace": "^5.0.3",
+    "pui-react-animation": "^0.2.0",
+    "pui-react-mixins": "^5.0.3",
     "pui-react-table": "^5.0.3",
     "recluster": "^0.4.5",
     "thenify": "^3.2.0",

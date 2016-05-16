@@ -3,6 +3,9 @@ const {TableCell, TableRow} = Pui;
 const React = require('react');
 const classnames = require('classnames')
 const numeral = require('numeral');
+const mixin = require('pui-react-mixins');
+
+const Animation = require('pui-react-mixins/mixins/animation_mixin');
 
 const {mergeProps} = require('pui-react-helpers');
 
@@ -46,7 +49,7 @@ function CustomCell({column: {format} = {}, children, ...props}) {
   return <td {...props}>{format ? numeral(children).format(format) : children}</td>
 }
 
-class CustomRow extends React.Component {
+class CustomRow extends mixin(React.Component).with(Animation) {
   constructor(props, context) {
     super(props, context);
 
@@ -69,13 +72,22 @@ class CustomRow extends React.Component {
     let {props: {rowDatum: {rows = []} = {}} = {}} = children[index] || {};
 
     rows = rows.map((data, i) => {
-      // console.log('index:', index)
-      // console.log('data:', data)
       const cells = columns.map((column, j) => {
         return <CustomCell {...{column}} key={j}>{data[column.attribute]}</CustomCell>
       });
-
-      return <tr className='subrow' key={`${i}-${index}`}>{cells}</tr>
+      const opacity = this.animate(`opacity-${i}`, expanded ? 1 : 0, 300);
+      const marginTop = this.animate(`marginTop-${i}`, expanded ? 0 : -46, 300, {easing: 'easeOutBounce'});
+      return  (
+        <tr className="table-wrapper">
+          <td colSpan={columns.length}>
+            <table className="subtable" style={{opacity, marginTop}}>
+              <tbody>
+                <tr className='subrow' key={`${i}-${index}`}>{cells}</tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      );
     });
 
     return (
@@ -83,7 +95,7 @@ class CustomRow extends React.Component {
         <tr className={classnames({expanded})} onClick={this.toggleRow}>
           {children}
         </tr>
-        {expanded && rows}
+        {rows}
       </tbody>
     );
   }
